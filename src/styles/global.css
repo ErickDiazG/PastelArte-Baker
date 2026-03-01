@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FFFDF7;
+  --color-choco: #4A3022;
+  --color-accent: #FFB7B2;
+  --color-cta: #FF9A76;
+  --font-brand: "Fredoka", sans-serif;
+  --font-body: "Nunito", sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-choco);
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-brand);
+  }
+}

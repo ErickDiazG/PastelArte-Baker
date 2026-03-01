@@ -1,0 +1,44 @@
+---
+// About Component
+---
+
+<section id="about" class="py-20 lg:py-32 bg-white px-4 sm:px-6 lg:px-8">
+  <div class="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
+    
+    <!-- Text Content -->
+    <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-brand font-bold text-choco mb-6">
+        Conoce a Jaque
+      </h2>
+      
+      <div class="bg-cream p-8 rounded-[2rem] shadow-sm border border-accent/20 relative">
+        <!-- SVG Quote icon -->
+        <svg class="absolute top-6 left-6 w-10 h-10 text-accent/50 -translate-x-4 -translate-y-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+        
+        <p class="text-lg sm:text-xl text-choco/80 font-body leading-relaxed relative z-10 italic">
+          "Hola, soy Jaque. Mi pasión es hornear sonrisas y, cuando no estoy batiendo chocolate, seguro estoy consintiendo a un michi. Cada postre aquí está hecho desde cero, como en casa."
+        </p>
+      </div>
+
+      <div class="mt-8 flex gap-4">
+        <!-- Decorative cat elements -->
+        <svg viewBox="0 0 100 100" class="w-8 h-8 fill-accent rotate-12"><path d="M50 85 C30 85, 20 65, 25 50 C30 35, 70 35, 75 50 C80 65, 70 85, 50 85 Z" /><circle cx="25" cy="35" r="10" /><circle cx="40" cy="20" r="11" /><circle cx="60" cy="20" r="11" /><circle cx="75" cy="35" r="10" /></svg>
+        <svg viewBox="0 0 100 100" class="w-8 h-8 fill-cta -rotate-12"><path d="M50 85 C30 85, 20 65, 25 50 C30 35, 70 35, 75 50 C80 65, 70 85, 50 85 Z" /><circle cx="25" cy="35" r="10" /><circle cx="40" cy="20" r="11" /><circle cx="60" cy="20" r="11" /><circle cx="75" cy="35" r="10" /></svg>
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div class="w-full lg:w-1/2 relative">
+      <div class="relative w-full max-w-md mx-auto aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-cream rotate-2 hover:rotate-0 transition-transform duration-500">
+        <img 
+          src="/images/jaquelin.png" 
+          alt="Jaquelin" 
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <!-- Decorative background -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-accent/20 rounded-full blur-3xl -z-10"></div>
+    </div>
+    
+  </div>
+</section>

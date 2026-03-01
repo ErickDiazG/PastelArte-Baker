@@ -1,0 +1,74 @@
+---
+// Hero Component
+---
+
+<section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden px-4 sm:px-6 lg:px-8">
+  <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+    
+    <!-- Text Content -->
+    <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left z-10">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-brand font-bold text-choco leading-tight mb-6">
+        Postres hechos con amor y un toque de ronroneos. 🐾
+      </h1>
+      <p class="text-lg sm:text-xl text-choco/80 font-body mb-8 max-w-2xl">
+        Endulza tu día en Reynosa con los pasteles y galletas más tiernos de la ciudad.
+      </p>
+      <a href="#menu" class="bg-cta text-white font-bold text-lg px-8 py-4 rounded-full hover:bg-[#fa8b61] transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block">
+        Ver el menú delicioso
+      </a>
+    </div>
+
+    <!-- Image & Animation Container -->
+    <div class="w-full lg:w-1/2 relative z-10 flex justify-center mt-10 lg:mt-0">
+      <div class="relative w-full max-w-md aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white transform rotate-2 hover:rotate-0 transition-transform duration-500">
+        <img 
+          src="/images/hero-cake.png" 
+          alt="Postre estrella de Jaque" 
+          class="w-full h-full object-cover"
+        />
+        
+        <!-- Cat Paw Animation -->
+        <div class="paw-container absolute -bottom-16 -right-16 w-32 h-32 rotate-[-45deg] z-20 transition-transform duration-700 ease-in-out cursor-pointer group hover:translate-x-[-4rem] hover:translate-y-[-4rem]">
+          <svg viewBox="0 0 100 100" class="w-full h-full fill-[#4A3022] drop-shadow-lg">
+            <!-- Main Paw Pad -->
+            <path d="M50 85 C30 85, 20 65, 25 50 C30 35, 70 35, 75 50 C80 65, 70 85, 50 85 Z" />
+            <!-- Toe 1 -->
+            <circle cx="25" cy="35" r="10" />
+            <!-- Toe 2 -->
+            <circle cx="40" cy="20" r="11" />
+            <!-- Toe 3 -->
+            <circle cx="60" cy="20" r="11" />
+            <!-- Toe 4 -->
+            <circle cx="75" cy="35" r="10" />
+            <!-- Arm connecting pad to bottom edge -->
+            <rect x="25" y="60" width="50" height="40" class="fill-[#4A3022]" />
+          </svg>
+        </div>
+      </div>
+      
+      <!-- Decorative Elements -->
+      <div class="absolute -top-10 -right-10 w-24 h-24 bg-accent/30 rounded-full blur-2xl z-0"></div>
+      <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-cta/20 rounded-full blur-2xl z-0"></div>
+    </div>
+  </div>
+  
+  <style>
+    /* CSS animation for the paw if we want it to move automatically */
+    .paw-container {
+      animation: sneaky-paw 4s infinite alternate ease-in-out;
+      transform-origin: bottom right;
+    }
+    
+    @keyframes sneaky-paw {
+      0%, 60% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      80% {
+        transform: translate(-3rem, -3rem) rotate(-10deg);
+      }
+      100% {
+        transform: translate(-3.5rem, -3.5rem) rotate(-15deg);
+      }
+    }
+  </style>
+</section>

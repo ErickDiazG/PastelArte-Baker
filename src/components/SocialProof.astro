@@ -1,0 +1,88 @@
+---
+// SocialProof Component
+const testimonials = [
+  {
+    name: "Ana García",
+    text: "¡Los pasteles de huellita son lo máximo! Pedí uno para el cumpleaños de mi hija y nos encantó la decoración y el sabor a vainilla.",
+    pawRating: 5
+  },
+  {
+    name: "Carlos M.",
+    text: "Las michi-galletas son mi adicción los fines de semana. Súper crujientes por fuera y suaves por dentro. 10/10.",
+    pawRating: 5
+  },
+  {
+    name: "Sofía T.",
+    text: "Excelente servicio y los brownies son una locura. Jaque tiene un don increíble para la repostería. ¡Volveré a pedir seguro!",
+    pawRating: 5
+  },
+  {
+    name: "Daniela R.",
+    text: "Hicieron mi pedido súper rápido y además de tiernos, estaban riquísimos. Todo súper higiénico y bien presentado.",
+    pawRating: 5
+  }
+];
+
+// Helper to render paw svgs based on count
+---
+
+<section class="py-20 lg:py-32 bg-cream px-4 sm:px-6 lg:px-8 border-y border-accent/20 overflow-hidden relative">
+  <!-- Decorative Background Paws -->
+  <div class="absolute opacity-5 top-10 left-10 w-24 h-24 rotate-12">
+    <svg viewBox="0 0 100 100" class="fill-choco"><path d="M50 85 C30 85, 20 65, 25 50 C30 35, 70 35, 75 50 C80 65, 70 85, 50 85 Z" /><circle cx="25" cy="35" r="10" /><circle cx="40" cy="20" r="11" /><circle cx="60" cy="20" r="11" /><circle cx="75" cy="35" r="10" /></svg>
+  </div>
+  <div class="absolute opacity-5 bottom-10 right-10 w-32 h-32 -rotate-12">
+    <svg viewBox="0 0 100 100" class="fill-choco"><path d="M50 85 C30 85, 20 65, 25 50 C30 35, 70 35, 75 50 C80 65, 70 85, 50 85 Z" /><circle cx="25" cy="35" r="10" /><circle cx="40" cy="20" r="11" /><circle cx="60" cy="20" r="11" /><circle cx="75" cy="35" r="10" /></svg>
+  </div>
+
+  <div class="max-w-6xl mx-auto z-10 relative">
+    
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-brand font-bold text-choco mb-4">
+        Lo que dicen los "Catadores"
+      </h2>
+      <p class="text-lg text-choco/70 font-body max-w-xl mx-auto">
+        No lo decimos solo nosotros, nuestros clientes lo confirman.
+      </p>
+    </div>
+
+    <!-- Scrollable Carousel Container -->
+    <div class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scroll focus:outline-none" style="scrollbar-width: none;">
+      {testimonials.map((t) => (
+        <div class="min-w-[300px] sm:min-w-[350px] md:min-w-[400px] w-full snap-center bg-white p-8 rounded-[2rem] shadow-md border border-accent/10 flex flex-col hover:shadow-xl transition-shadow duration-300">
+          
+          <!-- Paws Rating -->
+          <div class="flex gap-1 mb-4">
+            {Array.from({ length: t.pawRating }).map(() => (
+              <svg viewBox="0 0 100 100" class="w-6 h-6 fill-cta">
+                <path d="M50 85 C30 85, 20 65, 25 50 C30 35, 70 35, 75 50 C80 65, 70 85, 50 85 Z" />
+                <circle cx="25" cy="35" r="10" />
+                <circle cx="40" cy="20" r="11" />
+                <circle cx="60" cy="20" r="11" />
+                <circle cx="75" cy="35" r="10" />
+              </svg>
+            ))}
+          </div>
+          
+          <p class="text-choco/80 font-body italic mb-6 flex-1 text-lg">
+            "{t.text}"
+          </p>
+          
+          <div class="flex items-center gap-3">
+             <div class="w-10 h-10 rounded-full bg-accent text-choco flex items-center justify-center font-bold font-brand text-lg">
+                {t.name.charAt(0)}
+             </div>
+             <span class="font-bold text-choco font-brand">{t.name}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+  
+  <style>
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .hide-scroll::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</section>

@@ -1,0 +1,34 @@
+---
+// Header Component
+---
+<header class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md shadow-sm border-b border-accent/20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- Brand & Logo -->
+      <div class="flex items-center gap-3">
+        <a href="/" class="flex flex-row items-center gap-2 group">
+          <div class="w-12 h-12 overflow-hidden rounded-full border-2 border-accent group-hover:scale-105 transition-transform shadow-sm">
+            <img src="/images/logo.png" alt="Jaque Postres Logo" class="w-full h-full object-cover" />
+          </div>
+          <span class="text-2xl font-brand font-bold text-choco tracking-tight">Jaque Postres</span>
+        </a>
+      </div>
+      
+      <!-- Center Desktop Navigation -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="#menu" class="text-choco font-bold hover:text-cta transition-colors">Menú</a>
+        <a href="#about" class="text-choco font-bold hover:text-cta transition-colors">Sobre Jaque</a>
+        <a href="#faq" class="text-choco font-bold hover:text-cta transition-colors">FAQ</a>
+      </nav>
+
+      <!-- CTA WhatsApp Button -->
+      <div class="flex items-center">
+        <a href="https://wa.me/5211234567890" target="_blank" rel="noopener noreferrer" class="bg-cta text-white font-bold px-6 py-2.5 rounded-full hover:bg-[#fa8b61] transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap">
+          ¡Quiero pedir!
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</header>

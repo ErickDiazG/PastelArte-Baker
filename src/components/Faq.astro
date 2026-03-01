@@ -1,0 +1,54 @@
+---
+// Faq Component
+const faqs = [
+  {
+    question: "¿Con cuántos días de anticipación pido un pastel?",
+    answer: "Para pasteles de diseño sencillo recomiendo 3 días de anticipación. Para diseños personalizados o eventos grandes, por lo menos 1 semana."
+  },
+  {
+    question: "¿Tienen servicio a domicilio o entregan en un punto medio?",
+    answer: "Entregamos en punto medio (Plaza Periférico o similares) sin costo extra, o contamos con envío a domicilio con costo adicional dependiendo de tu colonia en Reynosa."
+  },
+  {
+    question: "¿Hacen postres personalizados?",
+    answer: "¡Claro que sí! Podemos adaptar sabores, colores y diseños de nuestros pasteles y galletas para la temática de tu evento. ¡Mándame mensaje y lo diseñamos!"
+  }
+];
+---
+
+<section id="faq" class="py-20 bg-cream/50 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-brand font-bold text-choco mb-4">
+        Preguntas Dulces
+      </h2>
+      <p class="text-lg text-choco/70 font-body">
+        Resolvemos tus principales dudas al instante.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <details class="group bg-white rounded-2xl shadow-sm border border-accent/20 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer p-6 font-brand font-bold text-xl text-choco">
+            {faq.question}
+            <span class="ml-1.5 flex-shrink-0 bg-accent/20 rounded-full p-2 text-cta group-open:-rotate-180 transition duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-choco/80 font-body text-lg border-t border-accent/10 pt-4 bg-cream/30">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+  
+  <style>
+    details > summary {
+      list-style: none;
+    }
+  </style>
+</section>
