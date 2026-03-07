@@ -1,7 +1,7 @@
 ---
-// Header Component
+// Header Component with Mobile Hamburger Menu
 ---
-<header class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md shadow-sm border-b border-accent/20">
+<header class="sticky top-0 z-50 bg-cream/90 backdrop-blur-sm shadow-sm border-b border-accent/20">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       
@@ -9,7 +9,7 @@
       <div class="flex items-center gap-3">
         <a href="/" class="flex flex-row items-center gap-2 group">
           <div class="w-12 h-12 overflow-hidden rounded-full border-2 border-accent group-hover:scale-105 transition-transform shadow-sm">
-            <img src="/images/logo.png" alt="Jaque Postres Logo" class="w-full h-full object-cover" />
+            <img src="/images/logo.webp" alt="Jaque Postres Logo" class="w-full h-full object-cover" width="48" height="48" />
           </div>
           <span class="text-2xl font-brand font-bold tracking-tight">
             <span class="text-choco">Jaque </span><span class="text-cta">Postres</span>
@@ -18,21 +18,85 @@
       </div>
       
       <!-- Center Desktop Navigation -->
-      <nav class="hidden md:flex space-x-8">
-        <a href="/" class="text-choco font-brand font-bold text-lg hover:text-cta transition-colors">Inicio</a>
-        <a href="#menu" class="text-choco font-brand font-bold text-lg hover:text-cta transition-colors">Menú</a>
-        <a href="#about" class="text-choco font-brand font-bold text-lg hover:text-cta transition-colors">Sobre Jaque</a>
-        <a href="#faq" class="text-choco font-brand font-bold text-lg hover:text-cta transition-colors">FAQ</a>
-        <a href="https://wa.me/5211234567890" target="_blank" rel="noopener noreferrer" class="text-choco font-brand font-bold text-lg hover:text-cta transition-colors">Contacto</a>
+      <nav class="hidden md:flex space-x-8" aria-label="Navegación principal">
+        <a href="/" class="text-choco font-brand font-bold text-lg hover:text-cta transition-colors py-2">Inicio</a>
+        <a href="#menu" class="text-choco font-brand font-bold text-lg hover:text-cta transition-colors py-2">Menú</a>
+        <a href="#about" class="text-choco font-brand font-bold text-lg hover:text-cta transition-colors py-2">Sobre Jaque</a>
+        <a href="#faq" class="text-choco font-brand font-bold text-lg hover:text-cta transition-colors py-2">FAQ</a>
+        <a href="https://wa.me/5211234567890" target="_blank" rel="noopener noreferrer" class="text-choco font-brand font-bold text-lg hover:text-cta transition-colors py-2">Contacto</a>
       </nav>
 
-      <!-- CTA WhatsApp Button -->
-      <div class="flex items-center">
-        <a href="https://wa.me/5211234567890" target="_blank" rel="noopener noreferrer" class="bg-cta text-white font-bold px-6 py-2.5 rounded-full hover:bg-[#fa8b61] transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap">
+      <!-- Right: CTA + Hamburger -->
+      <div class="flex items-center gap-3">
+        <!-- CTA WhatsApp Button -->
+        <a href="https://wa.me/5211234567890" target="_blank" rel="noopener noreferrer" class="bg-cta text-white font-bold px-6 py-2.5 rounded-full hover:bg-[#fa8b61] transition-colors shadow-md hover:shadow-lg whitespace-nowrap hidden sm:inline-flex">
           ¡Quiero pedir!
         </a>
+
+        <!-- Hamburger Button (Mobile) -->
+        <button 
+          id="menu-toggle" 
+          class="md:hidden flex items-center justify-center w-11 h-11 rounded-lg hover:bg-accent/20 transition-colors"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
       </div>
       
     </div>
+
+    <!-- Mobile Menu Panel -->
+    <nav 
+      id="mobile-menu" 
+      class="md:hidden hidden overflow-hidden transition-all duration-300 ease-in-out"
+      aria-label="Navegación móvil"
+    >
+      <div class="flex flex-col gap-1 pb-6 pt-2">
+        <a href="/" class="mobile-nav-link text-choco font-brand font-bold text-lg hover:text-cta hover:bg-accent/10 transition-colors py-3 px-4 rounded-xl">Inicio</a>
+        <a href="#menu" class="mobile-nav-link text-choco font-brand font-bold text-lg hover:text-cta hover:bg-accent/10 transition-colors py-3 px-4 rounded-xl">Menú</a>
+        <a href="#about" class="mobile-nav-link text-choco font-brand font-bold text-lg hover:text-cta hover:bg-accent/10 transition-colors py-3 px-4 rounded-xl">Sobre Jaque</a>
+        <a href="#faq" class="mobile-nav-link text-choco font-brand font-bold text-lg hover:text-cta hover:bg-accent/10 transition-colors py-3 px-4 rounded-xl">FAQ</a>
+        <a href="https://wa.me/5211234567890" target="_blank" rel="noopener noreferrer" class="bg-cta text-white font-bold py-3 px-6 rounded-full hover:bg-[#fa8b61] transition-colors text-center mt-3">
+          ¡Quiero pedir! 🐾
+        </a>
+      </div>
+    </nav>
   </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function toggleMenu() {
+    const isOpen = menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    hamburger?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+    toggle?.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+
+  toggle?.addEventListener('click', toggleMenu);
+
+  // Close menu when clicking a navigation link
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (!menu?.classList.contains('hidden')) {
+        toggleMenu();
+      }
+    });
+  });
+</script>

@@ -1,24 +1,24 @@
 ---
-// Menu Component
+// Menu Component — Optimized
 const menuItems = [
   {
     title: "Michi-Galletas",
     description: "Galletas decoradas y chocochips, horneadas con mucho cariño para alegrar tu día.",
-    image: "/images/michi-galletas.png",
+    image: "/images/michi-galletas.webp",
     whatsappLink: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20unas%20Michi-Galletas",
     tag: "Galletas",
   },
   {
     title: "Pasteles de Huellita",
     description: "Pasteles completos para cumpleaños o celebraciones especiales. ¡Súper esponjosos!",
-    image: "/images/pastel-huellita.png",
+    image: "/images/pastel-huellita.webp",
     whatsappLink: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20un%20Pastel%20de%20Huellita",
     tag: "Celebración",
   },
   {
     title: "Antojos de un Zarpazo",
     description: "Postres individuales: brownies fudgy, cupcakes y más para ese antojo de media tarde.",
-    image: "/images/antojo-zarpazo.png",
+    image: "/images/antojo-zarpazo.webp",
     whatsappLink: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20un%20Antojo%20de%20un%20Zarpazo",
     tag: "Individual",
   }
@@ -41,7 +41,7 @@ const menuItems = [
     <!-- Menu Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {menuItems.map((item) => (
-        <div class="bg-cream rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-accent/20 group flex flex-col items-center p-6 sm:p-8">
+        <div class="bg-cream rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-accent/20 group flex flex-col items-center p-6 sm:p-8">
           
           <!-- Image Container -->
           <div class="w-full aspect-square rounded-[1.5rem] overflow-hidden mb-6 relative">
@@ -52,6 +52,9 @@ const menuItems = [
               src={item.image} 
               alt={item.title} 
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              width="400"
+              height="400"
             />
           </div>
           
@@ -68,10 +71,10 @@ const menuItems = [
               href={item.whatsappLink} 
               target="_blank" 
               rel="noopener noreferrer" 
-              class="w-full bg-accent/30 text-choco hover:text-white font-bold py-3 px-6 rounded-full hover:bg-cta transition-colors border border-accent/50 text-center flex items-center justify-center gap-2 group-hover:border-transparent"
+              class="w-full bg-accent/30 text-choco hover:text-white font-bold py-3 px-6 rounded-full hover:bg-cta transition-colors border border-accent/50 text-center flex items-center justify-center gap-2 group-hover:border-transparent min-h-[44px]"
             >
               <span>¡Pedir por WhatsApp!</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" class="stroke-current stroke-2 group-hover:translate-x-1 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" class="stroke-current stroke-2 group-hover:translate-x-1 transition-transform" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
               </svg>
             </a>
@@ -82,9 +85,9 @@ const menuItems = [
 
     <!-- Ver menú completo -->
     <div class="text-center mt-14">
-      <a href="/menu" class="bg-cta text-white font-bold text-lg px-10 py-4 rounded-full hover:bg-[#fa8b61] transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center gap-3">
+      <a href="/menu" class="bg-cta text-white font-bold text-lg px-10 py-4 rounded-full hover:bg-[#fa8b61] transition-colors shadow-lg hover:shadow-xl inline-flex items-center gap-3 min-h-[44px]">
         Ver menú completo
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" class="stroke-current stroke-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" class="stroke-current stroke-2" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
         </svg>
       </a>

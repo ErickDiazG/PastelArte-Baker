@@ -1,0 +1,295 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Menu data organized by categories
+const categories = [
+  {
+    id: "pasteles",
+    name: "Pasteles",
+    emoji: "🎂",
+    description: "Pasteles completos para celebraciones, cumpleaños y momentos especiales.",
+    items: [
+      {
+        name: "Pastel de Vainilla Clásico",
+        description: "Bizcocho esponjoso con buttercream de vainilla. Decoración personalizable.",
+        price: "$350",
+        image: "https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=600&h=600&fit=crop&q=80",
+        whatsapp: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20un%20Pastel%20de%20Vainilla%20Clásico"
+      },
+      {
+        name: "Pastel de Chocolate Triple",
+        description: "Tres capas de chocolate intenso con ganache. Para los verdaderos chocoadictos.",
+        price: "$400",
+        image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=600&fit=crop&q=80",
+        whatsapp: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20un%20Pastel%20de%20Chocolate%20Triple"
+      },
+      {
+        name: "Pastel Red Velvet",
+        description: "Terciopelo rojo con frosting de queso crema. Elegante y delicioso.",
+        price: "$380",
+        image: "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=600&h=600&fit=crop&q=80",
+        whatsapp: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20un%20Pastel%20Red%20Velvet"
+      },
+      {
+        name: "Pastel de Tres Leches",
+        description: "Bañado en tres leches con crema batida y canela. Un clásico irresistible.",
+        price: "$320",
+        image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&h=600&fit=crop&q=80",
+        whatsapp: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20un%20Pastel%20de%20Tres%20Leches"
+      }
+    ]
+  },
+  {
+    id: "galletas",
+    name: "Galletas",
+    emoji: "🍪",
+    description: "Galletas horneadas con amor, perfectas para regalar o consentirte.",
+    items: [
+      {
+        name: "Galletas Chocochip",
+        description: "Galletas con chispas de chocolate. Crujientes por fuera, suaves por dentro.",
+        price: "$80 /docena",
+        image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&h=600&fit=crop&q=80",
+        whatsapp: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20Galletas%20Chocochip"
+      },
+      {
+        name: "Galletas Decoradas",
+        description: "Galletas de mantequilla decoradas con royal icing. Ideal para eventos.",
+        price: "$120 /docena",
+        image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&h=600&fit=crop&q=80",
+        whatsapp: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20Galletas%20Decoradas"
+      },
+      {
+        name: "Galletas de Avena",
+        description: "Con pasas y canela. Perfectas para acompañar tu café de la tarde.",
+        price: "$70 /docena",
+        image: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=600&h=600&fit=crop&q=80",
+        whatsapp: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20Galletas%20de%20Avena"
+      },
+      {
+        name: "Galletas Red Velvet",
+        description: "Suaves por dentro con chips de chocolate blanco. ¡Una delicia!",
+        price: "$90 /docena",
+        image: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=600&h=600&fit=crop&q=80",
+        whatsapp: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20Galletas%20Red%20Velvet"
+      }
+    ]
+  },
+  {
+    id: "individuales",
+    name: "Postres Individuales",
+    emoji: "🧁",
+    description: "Porciones individuales para esos antojos que no pueden esperar.",
+    items: [
+      {
+        name: "Brownies Fudgy",
+        description: "Densos y chocolatosos, con nuez opcional. Pura indulgencia.",
+        price: "$45 c/u",
+        image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&h=600&fit=crop&q=80",
+        whatsapp: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20Brownies%20Fudgy"
+      },
+      {
+        name: "Cupcakes Variados",
+        description: "Vainilla, chocolate o red velvet con frosting artesanal.",
+        price: "$55 c/u",
+        image: "https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?w=600&h=600&fit=crop&q=80",
+        whatsapp: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20Cupcakes"
+      },
+      {
+        name: "Cheesecake Individual",
+        description: "Porción de cheesecake estilo NY con frutos rojos frescos.",
+        price: "$75 c/u",
+        image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=600&h=600&fit=crop&q=80",
+        whatsapp: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20Cheesecake%20Individual"
+      },
+      {
+        name: "Cake Pops",
+        description: "Bolitas de pastel bañadas en chocolate. Divertidas y deliciosas.",
+        price: "$35 c/u",
+        image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&h=600&fit=crop&q=80",
+        whatsapp: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20Cake%20Pops"
+      }
+    ]
+  },
+  {
+    id: "especiales",
+    name: "Temporada & Especiales",
+    emoji: "🍫",
+    description: "Ediciones especiales, cajas regalo y servicios para eventos.",
+    items: [
+      {
+        name: "Caja Sorpresa Gatuna",
+        description: "Surtido de galletas y brownies en caja temática de gato. ¡Perfecto para regalar!",
+        price: "$250",
+        image: "https://images.unsplash.com/photo-1548848221-0c2e497ed557?w=600&h=600&fit=crop&q=80",
+        whatsapp: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20una%20Caja%20Sorpresa%20Gatuna"
+      },
+      {
+        name: "Mesa de Postres",
+        description: "Servicio completo para eventos de 20-50 personas. Incluye montaje y decoración.",
+        price: "Desde $1,500",
+        image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&h=600&fit=crop&q=80",
+        whatsapp: "https://wa.me/5211234567890?text=Hola,%20quiero%20información%20sobre%20Mesa%20de%20Postres"
+      },
+      {
+        name: "Postre del Mes",
+        description: "¡Pregunta por el especial de este mes! Sabores nuevos cada temporada.",
+        price: "Variable",
+        image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&h=600&fit=crop&q=80",
+        whatsapp: "https://wa.me/5211234567890?text=Hola,%20quiero%20saber%20cuál%20es%20el%20Postre%20del%20Mes"
+      }
+    ]
+  }
+];
+---
+
+<Layout title="Menú Completo | Jaque Postres">
+  <Header />
+  <main>
+    <!-- Page Hero -->
+    <section class="pt-12 pb-8 lg:pt-16 lg:pb-12 px-4 sm:px-6 lg:px-8 text-center">
+      <div class="max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-2 bg-accent/15 text-choco/80 text-sm font-body font-semibold px-5 py-2 rounded-full mb-6">
+          <svg viewBox="0 0 100 100" class="w-5 h-5 fill-cta" aria-hidden="true"><use href="#paw" /></svg>
+          Menú completo
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-brand font-bold text-choco mb-4">
+          Nuestro Menú Completo
+        </h1>
+        <p class="text-lg sm:text-xl text-choco/70 font-body max-w-2xl mx-auto">
+          Explora todos nuestros postres hechos con amor. ¿Ya sabes qué se te antoja? ¡Pide por WhatsApp!
+        </p>
+      </div>
+    </section>
+    
+    <!-- Category Tabs (Sticky) -->
+    <nav class="sticky top-20 z-40 bg-cream/95 backdrop-blur-sm border-y border-accent/20 py-3 px-4 sm:px-6 lg:px-8" aria-label="Categorías del menú">
+      <div class="max-w-4xl mx-auto flex justify-center gap-2 sm:gap-4 overflow-x-auto scrollbar-hide">
+        {categories.map((cat) => (
+          <a 
+            href={`#${cat.id}`}
+            class="flex items-center gap-2 px-4 sm:px-6 py-2.5 rounded-full font-brand font-bold text-sm sm:text-base text-choco/80 hover:text-choco bg-white/60 hover:bg-white border border-accent/20 hover:border-accent/40 transition-colors whitespace-nowrap min-h-[44px] shadow-sm"
+          >
+            <span aria-hidden="true">{cat.emoji}</span>
+            <span>{cat.name}</span>
+          </a>
+        ))}
+      </div>
+    </nav>
+
+    <!-- Menu Sections -->
+    {categories.map((category, i) => (
+      <section id={category.id} class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8 scroll-mt-36" style={i % 2 === 0 ? "background-color: #FFFDF7;" : "background-color: white;"}>
+        <div class="max-w-6xl mx-auto">
+
+          <!-- Category Header -->
+          <div class="text-center mb-12">
+            <span class="text-4xl mb-3 block" aria-hidden="true">{category.emoji}</span>
+            <h2 class="text-3xl sm:text-4xl font-brand font-bold text-choco mb-3">
+              {category.name}
+            </h2>
+            <p class="text-lg text-choco/60 font-body max-w-xl mx-auto">
+              {category.description}
+            </p>
+          </div>
+
+          <!-- Product Grid -->
+          <div class="menu-product-grid" style="display:grid;gap:1.5rem;">
+            {category.items.map((item) => (
+              <div class="group bg-cream rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-accent/15 flex flex-col">
+                
+                <!-- Product Image -->
+                <div class="aspect-square overflow-hidden relative">
+                  <img 
+                    src={item.image} 
+                    alt={item.name}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    width="300"
+                    height="300"
+                  />
+                  <!-- Price Badge -->
+                  <div class="absolute top-3 right-3 bg-choco/90 text-cream font-brand font-bold text-sm px-3 py-1.5 rounded-full shadow-lg">
+                    {item.price}
+                  </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-5 flex flex-col flex-1">
+                  <h3 class="text-lg font-brand font-bold text-choco mb-2 leading-snug">
+                    {item.name}
+                  </h3>
+                  <p class="text-sm text-choco/70 font-body mb-5 flex-1 leading-relaxed">
+                    {item.description}
+                  </p>
+                  <a 
+                    href={item.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-full bg-cta text-white font-bold py-2.5 px-4 rounded-full hover:bg-[#fa8b61] transition-colors text-center text-sm flex items-center justify-center gap-2 min-h-[44px]"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                    Pedir
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- Bottom CTA -->
+    <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-cream">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="bg-white rounded-[2rem] p-10 lg:p-14 shadow-lg border border-accent/20 relative overflow-hidden">
+          <div class="absolute opacity-10 top-0 left-0 w-28 h-28 -translate-x-8 -translate-y-8 rotate-45" aria-hidden="true"><svg viewBox="0 0 100 100" class="fill-choco"><use href="#paw" /></svg></div>
+          <div class="absolute opacity-10 bottom-0 right-0 w-32 h-32 translate-x-8 translate-y-8 -rotate-45" aria-hidden="true"><svg viewBox="0 0 100 100" class="fill-choco"><use href="#paw" /></svg></div>
+          
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-brand font-bold text-choco mb-4 relative z-10">
+            ¿Ya elegiste tu favorito? 😻
+          </h2>
+          <p class="text-lg text-choco/70 font-body mb-8 max-w-lg mx-auto relative z-10">
+            Mándame mensaje por WhatsApp y con gusto te atiendo. ¡Los pedidos especiales también son bienvenidos!
+          </p>
+          <a 
+            href="https://wa.me/5211234567890" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="bg-cta text-white font-bold text-lg px-10 py-4 rounded-full hover:bg-[#fa8b61] transition-colors shadow-lg hover:shadow-xl inline-flex items-center gap-3 min-h-[44px] relative z-10"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            ¡Quiero pedir ahora!
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Home -->
+    <div class="text-center py-8 bg-cream">
+      <a href="/" class="text-choco/60 hover:text-cta font-brand font-bold text-lg transition-colors inline-flex items-center gap-2 min-h-[44px]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" class="stroke-current stroke-2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+        </svg>
+        Volver al inicio
+      </a>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // Responsive grid — injected at runtime to avoid Tailwind/Astro stripping
+  const style = document.createElement('style');
+  style.textContent = `
+    .menu-product-grid { display:grid; grid-template-columns:1fr; gap:1.5rem; }
+    .scrollbar-hide { -ms-overflow-style:none; scrollbar-width:none; }
+    .scrollbar-hide::-webkit-scrollbar { display:none; }
+    @media(min-width:640px) { .menu-product-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(min-width:1024px) { .menu-product-grid { grid-template-columns:repeat(4,1fr); gap:2rem; } }
+  `;
+  document.head.appendChild(style);
+</script>
+
