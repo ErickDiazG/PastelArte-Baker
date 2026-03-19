@@ -1,1 +1,1 @@
-Landing page para Jaquelin, menu digitalizado, conectado a redes sociales, y sistema de carrito enlazado todo a su WhatsApp.
+Landing page para Faty, enfocado en venta de postres
