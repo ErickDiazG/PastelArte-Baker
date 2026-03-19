@@ -1,0 +1,134 @@
+---
+// Cart Sidebar UI
+---
+<div id="cart-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm" aria-hidden="true"></div>
+
+<aside id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-2xl z-[60] translate-x-full transition-transform duration-300 ease-in-out flex flex-col font-body">
+  <!-- Header -->
+  <div class="px-6 py-5 border-b border-accent/20 flex justify-between items-center bg-cream">
+    <h2 class="text-2xl font-brand font-bold text-choco flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cta"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+      Tu Pedido
+    </h2>
+    <button id="close-cart-btn" class="p-2 text-choco/60 hover:text-cta transition-colors rounded-full hover:bg-accent/10" aria-label="Cerrar el carrito">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Items -->
+  <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 flex flex-col gap-4">
+    <!-- Populated by JS -->
+    <div class="h-full flex flex-col items-center justify-center text-choco/50 text-center gap-4">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" class="stroke-current stroke-1"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+      <p>Tu bolsa de postres<br/>aún está vacía.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="p-6 border-t border-accent/20 bg-cream">
+    <a id="checkout-btn" href="#" target="_blank" rel="noopener noreferrer" class="w-full bg-cta text-white font-bold text-lg py-4 rounded-full hover:bg-[#D62828] transition-colors shadow-lg flex items-center justify-center gap-2 opacity-50 pointer-events-none">
+      Pedir por WhatsApp
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+    </a>
+  </div>
+</aside>
+
+<script>
+  import { CartStore } from '../scripts/cartStore.js';
+
+  const sidebar = document.getElementById('cart-sidebar');
+  const overlay = document.getElementById('cart-overlay');
+  const closeBtn = document.getElementById('close-cart-btn');
+  const container = document.getElementById('cart-items-container');
+  const checkoutBtn = document.getElementById('checkout-btn');
+
+  function toggleCart(show) {
+    if (show) {
+      overlay.classList.remove('hidden');
+      setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+      sidebar.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    } else {
+      overlay.classList.add('opacity-0');
+      sidebar.classList.add('translate-x-full');
+      setTimeout(() => overlay.classList.add('hidden'), 300);
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Listeners
+  closeBtn?.addEventListener('click', () => toggleCart(false));
+  overlay?.addEventListener('click', () => toggleCart(false));
+  
+  // Expose toggle to window for floating button
+  window.addEventListener('open-cart', () => toggleCart(true));
+
+  // Render logic
+  function renderCart(cart) {
+    if (!container || !checkoutBtn) return;
+    
+    if (cart.length === 0) {
+      container.innerHTML = `
+        <div class="h-full flex flex-col items-center justify-center text-choco/50 text-center gap-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" class="stroke-current stroke-1"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+          <p>Tu bolsa de postres<br/>aún está vacía.</p>
+        </div>
+      `;
+      checkoutBtn.classList.add('opacity-50', 'pointer-events-none');
+      checkoutBtn.removeAttribute('href');
+      return;
+    }
+
+    checkoutBtn.classList.remove('opacity-50', 'pointer-events-none');
+    checkoutBtn.setAttribute('href', CartStore.formatWhatsAppOrder());
+
+    container.innerHTML = cart.map(item => `
+      <div class="flex gap-4 p-4 bg-white rounded-2xl border border-accent/20 shadow-sm items-center hover:border-cta/30 transition-colors">
+        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-xl border border-accent/10" />
+        <div class="flex-1 min-w-0">
+          <h4 class="font-brand font-bold text-choco mb-1 text-sm leading-tight truncate w-full" title="${item.name}">${item.name}</h4>
+          <div class="flex items-center gap-3 mt-2">
+            <div class="flex items-center bg-cream rounded-md border border-accent/30 overflow-hidden">
+              <button class="cart-minus px-2.5 py-1 bg-white hover:bg-accent/10 text-choco hover:text-cta font-bold transition-colors" data-name="${item.name}">-</button>
+              <span class="px-2 text-xs font-bold w-6 text-center">${item.quantity}</span>
+              <button class="cart-plus px-2.5 py-1 bg-white hover:bg-accent/10 text-choco hover:text-cta font-bold transition-colors" data-name="${item.name}">+</button>
+            </div>
+          </div>
+        </div>
+        <button class="cart-remove p-2 text-choco/30 hover:text-cta transition-colors hover:bg-accent/10 rounded-full" data-name="${item.name}" aria-label="Eliminar elemento">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+        </button>
+      </div>
+    `).join('');
+
+    // Attach button listeners to new elements
+    container.querySelectorAll('.cart-minus').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const tgt = e.currentTarget as HTMLButtonElement;
+        CartStore.updateQuantity(tgt.dataset.name, -1);
+      });
+    });
+    container.querySelectorAll('.cart-plus').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const tgt = e.currentTarget as HTMLButtonElement;
+        CartStore.updateQuantity(tgt.dataset.name, 1);
+      });
+    });
+    container.querySelectorAll('.cart-remove').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const tgt = e.currentTarget as HTMLButtonElement;
+        CartStore.removeItem(tgt.dataset.name);
+      });
+    });
+  }
+
+  // Re-render when cart is updated
+  window.addEventListener('cart-updated', ((e: CustomEvent) => {
+    renderCart(e.detail);
+  }) as EventListener);
+  
+  // Set initial state
+  document.addEventListener('DOMContentLoaded', () => {
+    renderCart(CartStore.getCart());
+  });
+</script>

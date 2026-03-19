@@ -7,34 +7,32 @@
     
     <!-- Text Content -->
     <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left z-10">
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-brand font-bold text-choco leading-tight mb-6">
-        Postres hechos con amor y un toque de ronroneos. 🐾
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-brand font-bold text-choco leading-tight mb-6 reveal-up">
+        Postres hechos con amor y un toque de magia. ✨
       </h1>
-      <p class="text-lg sm:text-xl text-choco/80 font-body mb-8 max-w-2xl">
+      <p class="text-lg sm:text-xl text-choco/80 font-body mb-8 max-w-2xl reveal-up delay-100">
         Endulza tu día en Reynosa con los pasteles y galletas más tiernos de la ciudad.
       </p>
-      <a href="#menu" class="bg-cta text-white font-bold text-lg px-8 py-4 rounded-full hover:bg-[#fa8b61] transition-colors shadow-lg hover:shadow-xl inline-block">
-        Ver el menú delicioso
+      <a href="/menu" class="bg-cta text-white font-bold text-lg px-8 py-4 rounded-full hover:bg-[#D62828] transition-colors shadow-lg hover:shadow-xl inline-block reveal-up delay-200">
+        Ver el menú completo
       </a>
     </div>
 
     <!-- Image & Animation Container -->
-    <div class="w-full lg:w-1/2 relative z-10 flex justify-center mt-10 lg:mt-0">
+    <div class="w-full lg:w-1/2 relative z-10 flex justify-center mt-10 lg:mt-0 reveal-fade delay-300">
       <div class="relative w-full max-w-md aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white">
         <img 
           src="/images/hero-cake.webp" 
-          alt="Pastel decorado con temática de gato, postre estrella de Jaque Postres" 
+          alt="Pastel decorado con temática de gato, postre estrella de PastelArte" 
           class="w-full h-full object-cover"
           width="500"
           height="500"
         />
         
-        <!-- Cat Paw Animation -->
-        <div class="paw-container absolute -bottom-16 -right-16 w-32 h-32 rotate-[-45deg] z-20 cursor-pointer" aria-hidden="true">
-          <svg viewBox="0 0 100 100" class="w-full h-full fill-[#4A3022] drop-shadow-lg">
-            <use href="#paw" />
-            <!-- Arm connecting pad to bottom edge -->
-            <rect x="25" y="60" width="50" height="40" class="fill-[#4A3022]" />
+        <!-- Sparkle Animation -->
+        <div class="sparkle-container absolute -bottom-8 -right-8 w-24 h-24 z-20 cursor-pointer" aria-hidden="true">
+          <svg viewBox="0 0 100 100" class="w-full h-full fill-cta drop-shadow-lg">
+            <use href="#sparkle" />
           </svg>
         </div>
       </div>
@@ -46,21 +44,18 @@
   </div>
   
   <style>
-    .paw-container {
-      animation: sneaky-paw 4s infinite alternate ease-in-out;
-      transform-origin: bottom right;
+    .sparkle-container {
+      animation: float-sparkle 4s infinite alternate ease-in-out;
+      transform-origin: center;
       will-change: transform;
     }
     
-    @keyframes sneaky-paw {
-      0%, 60% {
-        transform: translate(0, 0) rotate(0deg);
+    @keyframes float-sparkle {
+      0%, 100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
       }
-      80% {
-        transform: translate(-3rem, -3rem) rotate(-10deg);
-      }
-      100% {
-        transform: translate(-3.5rem, -3.5rem) rotate(-15deg);
+      50% {
+        transform: translate(-1rem, -1rem) rotate(15deg) scale(1.1);
       }
     }
   </style>

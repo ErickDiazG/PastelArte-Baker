@@ -4,7 +4,7 @@
   --color-cream: #FFFDF7;
   --color-choco: #4A3022;
   --color-accent: #FFB7B2;
-  --color-cta: #FF9A76;
+  --color-cta: #E63946;
   --font-brand: "Fredoka", sans-serif;
   --font-body: "Nunito", sans-serif;
 }
@@ -34,5 +34,41 @@
     outline: 3px solid var(--color-cta);
     outline-offset: 2px;
     border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  /* Scroll Reveal Base Classes */
+  .reveal-up, .reveal-left, .reveal-right, .reveal-fade, .reveal-scale {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    will-change: opacity, transform;
+  }
+  
+  .reveal-up { transform: translateY(40px); }
+  .reveal-left { transform: translateX(20px); }
+  .reveal-right { transform: translateX(-20px); }
+  .reveal-scale { transform: scale(0.95); }
+  .reveal-fade { transform: none; }
+
+  /* Activated States */
+  .is-revealed {
+    opacity: 1 !important;
+    transform: translate(0, 0) scale(1) !important;
+  }
+  
+  /* Stagger Delays */
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
+  .delay-500 { transition-delay: 500ms; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up, .reveal-left, .reveal-right, .reveal-fade, .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

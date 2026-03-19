@@ -25,4 +25,6 @@ pnpm-debug.log*
 
 # AI agents & temp files
 .agent/
+.agents/
 .gemini/
+BEST_PRACTICES.md

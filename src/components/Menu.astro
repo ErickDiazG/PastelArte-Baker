@@ -5,21 +5,21 @@ const menuItems = [
     title: "Michi-Galletas",
     description: "Galletas decoradas y chocochips, horneadas con mucho cariño para alegrar tu día.",
     image: "/images/michi-galletas.webp",
-    whatsappLink: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20unas%20Michi-Galletas",
+    whatsappLink: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20unas%20Michi-Galletas",
     tag: "Galletas",
   },
   {
     title: "Pasteles de Huellita",
     description: "Pasteles completos para cumpleaños o celebraciones especiales. ¡Súper esponjosos!",
     image: "/images/pastel-huellita.webp",
-    whatsappLink: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20un%20Pastel%20de%20Huellita",
+    whatsappLink: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20un%20Pastel%20de%20Huellita",
     tag: "Celebración",
   },
   {
     title: "Antojos de un Zarpazo",
     description: "Postres individuales: brownies fudgy, cupcakes y más para ese antojo de media tarde.",
     image: "/images/antojo-zarpazo.webp",
-    whatsappLink: "https://wa.me/5211234567890?text=Hola,%20quiero%20pedir%20un%20Antojo%20de%20un%20Zarpazo",
+    whatsappLink: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20un%20Antojo%20de%20un%20Zarpazo",
     tag: "Individual",
   }
 ];
@@ -30,7 +30,7 @@ const menuItems = [
     
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-brand font-bold text-choco mb-4">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-brand font-bold text-choco mb-4 reveal-up">
         Nuestro Menú Delicioso
       </h2>
       <p class="text-lg text-choco/70 font-body max-w-2xl mx-auto">
@@ -41,7 +41,7 @@ const menuItems = [
     <!-- Menu Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {menuItems.map((item) => (
-        <div class="bg-cream rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-accent/20 group flex flex-col items-center p-6 sm:p-8">
+        <div class="bg-cream rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-accent/20 group flex flex-col items-center p-6 sm:p-8 reveal-up delay-100">
           
           <!-- Image Container -->
           <div class="w-full aspect-square rounded-[1.5rem] overflow-hidden mb-6 relative">
@@ -67,17 +67,25 @@ const menuItems = [
               {item.description}
             </p>
             
-            <a 
-              href={item.whatsappLink} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              class="w-full bg-accent/30 text-choco hover:text-white font-bold py-3 px-6 rounded-full hover:bg-cta transition-colors border border-accent/50 text-center flex items-center justify-center gap-2 group-hover:border-transparent min-h-[44px]"
-            >
-              <span>¡Pedir por WhatsApp!</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" class="stroke-current stroke-2 group-hover:translate-x-1 transition-transform" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-              </svg>
-            </a>
+            <div class="flex gap-2 w-full mt-4">
+              <button 
+                class="add-to-cart-btn flex-1 bg-cream text-cta border-2 border-cta font-bold py-2 px-2 rounded-xl border-dashed hover:bg-cta hover:text-white transition-colors text-center text-sm flex items-center justify-center gap-1 min-h-[44px]"
+                data-name={item.title}
+                data-image={item.image}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" class="stroke-current stroke-2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/><path d="M12 8v6"/><path d="M9 11h6"/></svg>
+                Añadir
+              </button>
+              <a 
+                href={item.whatsappLink} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="flex-[1.5] bg-cta text-white font-bold py-2 px-2 rounded-xl hover:bg-[#D62828] transition-colors text-center text-sm flex items-center justify-center gap-1 min-h-[44px]"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                Pedir
+              </a>
+            </div>
           </div>
         </div>
       ))}
@@ -85,7 +93,7 @@ const menuItems = [
 
     <!-- Ver menú completo -->
     <div class="text-center mt-14">
-      <a href="/menu" class="bg-cta text-white font-bold text-lg px-10 py-4 rounded-full hover:bg-[#fa8b61] transition-colors shadow-lg hover:shadow-xl inline-flex items-center gap-3 min-h-[44px]">
+      <a href="/menu" class="bg-cta text-white font-bold text-lg px-10 py-4 rounded-full hover:bg-[#D62828] transition-colors shadow-lg hover:shadow-xl inline-flex items-center gap-3 min-h-[44px]">
         Ver menú completo
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" class="stroke-current stroke-2" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
@@ -95,3 +103,40 @@ const menuItems = [
     
   </div>
 </section>
+
+<script>
+  import { CartStore } from '../scripts/cartStore.js';
+  
+  function initCartButtons() {
+    const buttons = document.querySelectorAll('.add-to-cart-btn');
+    buttons.forEach(btn => {
+      if (btn.hasAttribute('data-initialized')) return;
+      btn.setAttribute('data-initialized', 'true');
+      
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = e.currentTarget as HTMLButtonElement;
+        const item = {
+          name: target.dataset.name,
+          image: target.dataset.image
+        };
+        CartStore.addItem(item);
+        
+        const originalText = target.innerHTML;
+        target.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> ¡Añadido!`;
+        target.classList.replace('text-cta', 'text-white');
+        target.classList.replace('bg-cream', 'bg-[#10b981]');
+        target.classList.replace('border-cta', 'border-[#10b981]');
+        
+        setTimeout(() => {
+          target.innerHTML = originalText;
+          target.classList.replace('text-white', 'text-cta');
+          target.classList.replace('bg-[#10b981]', 'bg-cream');
+          target.classList.replace('border-[#10b981]', 'border-cta');
+        }, 1500);
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initCartButtons);
+</script>

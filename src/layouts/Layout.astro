@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import CartSidebar from '../components/CartSidebar.astro';
+import CartFloatingButton from '../components/CartFloatingButton.astro';
 
 interface Props {
   title: string;
@@ -12,7 +14,7 @@ const { title } = Astro.props;
 <html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Jaque Postres: Postres hechos con amor y un toque de ronroneos. Pasteles, galletas y más en Reynosa." />
+    <meta name="description" content="PastelArte: Postres hechos con amor y un toque de ronroneos. Pasteles, galletas y más en Reynosa." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -34,19 +36,22 @@ const { title } = Astro.props;
       <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     </noscript>
 
-    <!-- Paw SVG symbol definition for reuse across components -->
+    <!-- Sparkle SVG symbol definition for reuse across components -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-      <symbol id="paw" viewBox="0 0 100 100">
-        <path d="M50 85 C30 85, 20 65, 25 50 C30 35, 70 35, 75 50 C80 65, 70 85, 50 85 Z" />
-        <circle cx="25" cy="35" r="10" />
-        <circle cx="40" cy="20" r="11" />
-        <circle cx="60" cy="20" r="11" />
-        <circle cx="75" cy="35" r="10" />
+      <symbol id="sparkle" viewBox="0 0 100 100">
+        <path d="M50 5 L61 39 L95 50 L61 61 L50 95 L39 61 L5 50 L39 39 Z" />
       </symbol>
     </svg>
   </head>
   <body class="bg-cream text-choco font-body antialiased selection:bg-accent selection:text-choco">
     <slot />
+    <CartFloatingButton />
+    <CartSidebar />
+    <script>
+      import { initScrollReveal } from '../scripts/scrollReveal.js';
+      // Reinicia animaciones (en especial si se usa astro:page-load a futuro)
+      document.addEventListener('DOMContentLoaded', initScrollReveal);
+    </script>
   </body>
 </html>
 
