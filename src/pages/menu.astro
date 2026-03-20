@@ -11,26 +11,42 @@ const categories = [
     emoji: "🎂",
     description: "Pasteles completos para celebraciones, cumpleaños y momentos especiales.",
     items: [
-      {
-        name: "Pastel de 3 Leches",
-        description: "El clásico indiscutible. Bizcocho bañado a la perfección para deshacerse en tu boca.",
-        price: "$350",
-        image: "/images/pastel de 3 leches.jpg",
-        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20un%20Pastel%20de%203%20Leches"
-      },
+
       {
         name: "Pastel de Fresa",
         description: "Bello, fresco y sumamente cremoso. Un deleite con fresas naturales.",
-        price: "$380",
         image: "/images/pastel de fresa.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20un%20Pastel%20de%20Fresa"
       },
       {
         name: "Pastel de Plátano",
         description: "Un sabor de hogar con un giro gourmet delicioso y equilibrado.",
-        price: "$320",
         image: "/images/pastel de platano.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20un%20Pastel%20de%20Plátano"
+      },
+      {
+        name: "Pastel 3 Leches c/ Mango y Fresas",
+        description: "Exquisito relleno frutal que contrasta perfecto con la dulzura de las tres leches.",
+        image: "/images/pastel de 3 leches relleno de mando y fresas.jpg",
+        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Pastel%20de%203%20Leches%20con%20Mango%20y%20Fresas"
+      },
+      {
+        name: "Pastel de Zanahoria",
+        description: "Masa especiada inigualable con un terso betún de queso crema. Un rotundo clásico.",
+        image: "/images/pastel de zanahoria con betun de queso crema.jpg",
+        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Pastel%20de%20Zanahoria"
+      },
+      {
+        name: "Pastel Red Velvet c/ Fresas",
+        description: "Intenso color rojo rubí, sabor aterciopelado y decorado hermoso con fresas naturales.",
+        image: "/images/red velvet con fresas.jpg",
+        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Pastel%20Red%20Velvet%20con%20Fresas"
+      },
+      {
+        name: "Chocoflan con Fresas",
+        description: "Lo mejor de dos mundos: bizcocho de chocolate y flan cremoso bañados en dulzura.",
+        image: "/images/chocoflan con fresas.jpg",
+        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Chocoflan%20con%20Fresas"
       }
     ]
   },
@@ -43,28 +59,24 @@ const categories = [
       {
         name: "Galleta Chocolate",
         description: "Clásica masa de galleta rellena completamente de magia y chispas de chocolate.",
-        price: "$50",
         image: "/images/galleta choco.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Galletas%20de%20Chocolate"
       },
       {
         name: "Galleta Hershey's",
         description: "Un sueño chocolatoso. Nuestra receta especial horneada con chocolate Hershey's.",
-        price: "$60",
         image: "/images/Galleta hersheys.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Galletas%20Hersheys"
       },
       {
         name: "Galleta Hershey's Blanco",
         description: "La alternativa suave. Un balance espléndido para los amantes del chocolate blanco.",
-        price: "$60",
         image: "/images/galeta hersheys blanco.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Galletas%20Hersheys%20Blanco"
       },
       {
         name: "Galleta Dubai",
         description: "Exótica, indulgente y crujiente. Una tendencia mundial ahora en Reynosa.",
-        price: "$120",
         image: "/images/galleta dubai.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Galletas%20Dubai"
       }
@@ -78,38 +90,57 @@ const categories = [
     items: [
       {
         name: "Pastel Red Velvet c/ Oro",
-        description: "Elegancia en porción. Red Velvet coronado con auténtico oro comestible 24k.",
-        price: "$90",
+        description: "Elegancia en porción. Red Velvet coronado con una lámina de oro comestible.",
         image: "/images/pastel individual red velvet con oro comestible.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Pastel%20Red%20Velvet%20Individual%20con%20Oro"
       },
       {
         name: "Pastel Red Velvet c/ Fresa",
         description: "Relleno de fresas y un espectacular e increíble betún de queso crema.",
-        price: "$80",
         image: "/images/pastel red velvet individual con betun de queso crema y relleno de fresas.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Pastel%20Red%20Velvet%20Individual"
       },
       {
         name: "Fresas Dubai",
         description: "El snack dulce más codiciado, fusionando fresas frescas con la textura crujiente Dubai.",
-        price: "$150",
         image: "/images/fresas dubai.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Fresas%20Dubai"
       },
       {
         name: "Roles Dubai",
         description: "Un rol calientito y esponjoso bañado generosamente con la mezcla secreta Dubai.",
-        price: "$60",
         image: "/images/roles dubai.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Roles%20Dubai"
       },
       {
         name: "Fresas con Crema",
         description: "Fabulosas fresas frescas de temporada bañadas con crema especial de la casa.",
-        price: "$65",
         image: "/images/fresas con crema.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Fresas%20con%20Crema"
+      },
+      {
+        name: "Fresas Cubiertas de Chocolate",
+        description: "Selectas fresas bañadas en una crujiente y fina capa de chocolate premium.",
+        image: "/images/fresas cubiertas de chocolate.jpg",
+        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Fresas%20Cubiertas%20de%20Chocolate"
+      },
+      {
+        name: "Chocobomba",
+        description: "Esfera de chocolate artesanal rellena de cocoa y bombones. ¡Derrítela en leche caliente!",
+        image: "/images/chocobombas.jpg",
+        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20unas%20Chocobombas"
+      },
+      {
+        name: "Flan Napolitano",
+        description: "El toque casero que no puede faltar. Cremoso, suave y con caramelo perfecto.",
+        image: "/images/flan napolitano.jpg",
+        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20el%20Flan%20Napolitano"
+      },
+      {
+        name: "Pay de Queso Mixto",
+        description: "Mitad limón con nuez y mitad fresas. El balance perfecto entre frescura y sabor.",
+        image: "/images/pay de queso, mitad limon con nuez y mitad fresas.jpg",
+        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20el%20Pay%20de%20Queso%20Mixto"
       }
     ]
   },
@@ -120,23 +151,26 @@ const categories = [
     description: "Nuestras obras maestras a medida, creadas especialmente para que tu celebración brille.",
     items: [
       {
+        name: "Pastel de 3 Leches (Minecraft)",
+        description: "El clásico de la casa con decorado temático. Bizcocho bañado a la perfección.",
+        image: "/images/pastel de 3 leches.jpg",
+        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20información%20para%20un%20Pastel%20de%20Minecraft"
+      },
+      {
         name: "Pastel para Evento",
         description: "Pasteles esculturales y artísticos para bodas, bautizos y mega celebraciones.",
-        price: "Mándanos WA",
         image: "/images/pastel evento.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20información%20para%20un%20Pastel%20de%20Evento"
       },
       {
         name: "Pastel Temático Día del Padre",
         description: "Diseño elegante y sobrio con los mejores sabores para festejar el día del padre.",
-        price: "Mándanos WA",
         image: "/images/dia del padre cakes.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20información%20sobre%20Pastel%20Día%20del%20Padre"
       },
       {
         name: "Pastel para XV Años",
         description: "Elaborados con impecable atención al detalle para la noche más inolvidable.",
-        price: "Mándanos WA",
         image: "/images/pastel xv años.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20información%20para%20un%20Pastel%20de%20XV%20Años"
       }
@@ -211,10 +245,7 @@ const categories = [
                     width="300"
                     height="300"
                   />
-                  <!-- Price Badge -->
-                  <div class="absolute top-3 right-3 bg-choco/90 text-cream font-brand font-bold text-sm px-3 py-1.5 rounded-full shadow-lg">
-                    {item.price}
-                  </div>
+
                 </div>
 
                 <!-- Product Info -->
@@ -227,22 +258,13 @@ const categories = [
                   </p>
                   <div class="flex gap-2 w-full mt-auto pt-4 border-t border-accent/10">
                     <button 
-                      class="add-to-cart-btn flex-[1] bg-cream text-cta border-2 border-cta font-bold py-2 px-1 sm:px-2 rounded-xl border-dashed hover:bg-cta hover:text-white transition-colors text-center text-sm flex items-center justify-center gap-1 min-h-[44px]"
+                      class="add-to-cart-btn w-full bg-cta text-white font-bold py-3 px-4 rounded-xl border-2 border-cta hover:bg-[#D62828] hover:border-[#D62828] transition-colors text-center text-sm sm:text-base flex items-center justify-center gap-2 min-h-[48px] shadow-sm hover:shadow-md"
                       data-name={item.name}
                       data-image={item.image}
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" class="stroke-current stroke-2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/><path d="M12 8v6"/><path d="M9 11h6"/></svg>
-                      Añadir
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" class="stroke-current stroke-2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/><path d="M12 8v6"/><path d="M9 11h6"/></svg>
+                      Añadir al carrito
                     </button>
-                    <a 
-                      href={item.whatsapp}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="w-full flex-[1.5] bg-cta text-white font-bold py-2 px-1 sm:px-2 rounded-xl hover:bg-[#D62828] transition-colors text-center text-sm flex items-center justify-center gap-1 min-h-[44px]"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                      Pedir
-                    </a>
                   </div>
                 </div>
               </div>
