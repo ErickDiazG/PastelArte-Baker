@@ -1,4 +1,4 @@
----
+﻿---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -8,10 +8,16 @@ const categories = [
   {
     id: "pasteles",
     name: "Pasteles",
-    emoji: "🎂",
-    description: "Pasteles completos para celebraciones, cumpleaños y momentos especiales.",
+    emoji: "­ƒÄé",
+    description: "Pasteles completos para celebraciones, cumplea├▒os y momentos especiales.",
     items: [
-
+      {
+        name: "Pastel de 3 Leches",
+        description: "El cl├ísico indiscutible. Bizcocho ba├▒ado a la perfecci├│n para deshacerse en tu boca.",
+        price: "$350",
+        image: "/images/pastel de 3 leches.jpg",
+        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20un%20Pastel%20de%203%20Leches"
+      },
       {
         name: "Pastel de Fresa",
         description: "Bello, fresco y sumamente cremoso. Un deleite con fresas naturales.",
@@ -20,72 +26,44 @@ const categories = [
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20un%20Pastel%20de%20Fresa"
       },
       {
-        name: "Pastel de Plátano",
+        name: "Pastel de Pl├ítano",
         description: "Un sabor de hogar con un giro gourmet delicioso y equilibrado.",
         price: "$320",
         image: "/images/pastel de platano.jpg",
-        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20un%20Pastel%20de%20Plátano"
-      },
-      {
-        name: "Pastel 3 Leches c/ Mango y Fresas",
-        description: "Exquisito relleno frutal que contrasta perfecto con la dulzura de las tres leches.",
-        price: "$380",
-        image: "/images/pastel de 3 leches relleno de mando y fresas.jpg",
-        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Pastel%20de%203%20Leches%20con%20Mango%20y%20Fresas"
-      },
-      {
-        name: "Pastel de Zanahoria",
-        description: "Masa especiada inigualable con un terso betún de queso crema. Un rotundo clásico.",
-        price: "$350",
-        image: "/images/pastel de zanahoria con betun de queso crema.jpg",
-        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Pastel%20de%20Zanahoria"
-      },
-      {
-        name: "Pastel Red Velvet c/ Fresas",
-        description: "Intenso color rojo rubí, sabor aterciopelado y decorado hermoso con fresas naturales.",
-        price: "$380",
-        image: "/images/red velvet con fresas.jpg",
-        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Pastel%20Red%20Velvet%20con%20Fresas"
-      },
-      {
-        name: "Chocoflan con Fresas",
-        description: "Lo mejor de dos mundos: bizcocho de chocolate y flan cremoso bañados en dulzura.",
-        price: "$280",
-        image: "/images/chocoflan con fresas.jpg",
-        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Chocoflan%20con%20Fresas"
+        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20un%20Pastel%20de%20Pl├ítano"
       }
     ]
   },
   {
     id: "galletas",
     name: "Galletas",
-    emoji: "🍪",
+    emoji: "­ƒì¬",
     description: "Galletas horneadas con amor, perfectas para regalar o consentirte a bocados gruesos.",
     items: [
       {
         name: "Galleta Chocolate",
-        description: "Clásica masa de galleta rellena completamente de magia y chispas de chocolate.",
+        description: "Cl├ísica masa de galleta rellena completamente de magia y chispas de chocolate.",
         price: "$50",
         image: "/images/galleta choco.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Galletas%20de%20Chocolate"
       },
       {
         name: "Galleta Hershey's",
-        description: "Un sueño chocolatoso. Nuestra receta especial horneada con chocolate Hershey's.",
+        description: "Un sue├▒o chocolatoso. Nuestra receta especial horneada con chocolate Hershey's.",
         price: "$60",
         image: "/images/Galleta hersheys.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Galletas%20Hersheys"
       },
       {
         name: "Galleta Hershey's Blanco",
-        description: "La alternativa suave. Un balance espléndido para los amantes del chocolate blanco.",
+        description: "La alternativa suave. Un balance espl├®ndido para los amantes del chocolate blanco.",
         price: "$60",
         image: "/images/galeta hersheys blanco.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Galletas%20Hersheys%20Blanco"
       },
       {
         name: "Galleta Dubai",
-        description: "Exótica, indulgente y crujiente. Una tendencia mundial ahora en Reynosa.",
+        description: "Ex├│tica, indulgente y crujiente. Una tendencia mundial ahora en Reynosa.",
         price: "$120",
         image: "/images/galleta dubai.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Galletas%20Dubai"
@@ -95,114 +73,79 @@ const categories = [
   {
     id: "individuales",
     name: "Postres Individuales",
-    emoji: "🧁",
+    emoji: "­ƒºü",
     description: "Porciones perfectas para apagar esos hermosos antojos que no pueden esperar.",
     items: [
       {
         name: "Pastel Red Velvet c/ Oro",
-        description: "Elegancia en porción. Red Velvet coronado con una lámina de oro comestible.",
+        description: "Elegancia en porci├│n. Red Velvet coronado con aut├®ntico oro comestible 24k.",
         price: "$90",
         image: "/images/pastel individual red velvet con oro comestible.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Pastel%20Red%20Velvet%20Individual%20con%20Oro"
       },
       {
         name: "Pastel Red Velvet c/ Fresa",
-        description: "Relleno de fresas y un espectacular e increíble betún de queso crema.",
+        description: "Relleno de fresas y un espectacular e incre├¡ble bet├║n de queso crema.",
         price: "$80",
         image: "/images/pastel red velvet individual con betun de queso crema y relleno de fresas.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Pastel%20Red%20Velvet%20Individual"
       },
       {
         name: "Fresas Dubai",
-        description: "El snack dulce más codiciado, fusionando fresas frescas con la textura crujiente Dubai.",
+        description: "El snack dulce m├ís codiciado, fusionando fresas frescas con la textura crujiente Dubai.",
         price: "$150",
         image: "/images/fresas dubai.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Fresas%20Dubai"
       },
       {
         name: "Roles Dubai",
-        description: "Un rol calientito y esponjoso bañado generosamente con la mezcla secreta Dubai.",
+        description: "Un rol calientito y esponjoso ba├▒ado generosamente con la mezcla secreta Dubai.",
         price: "$60",
         image: "/images/roles dubai.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Roles%20Dubai"
       },
       {
         name: "Fresas con Crema",
-        description: "Fabulosas fresas frescas de temporada bañadas con crema especial de la casa.",
+        description: "Fabulosas fresas frescas de temporada ba├▒adas con crema especial de la casa.",
         price: "$65",
         image: "/images/fresas con crema.jpg",
         whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Fresas%20con%20Crema"
-      },
-      {
-        name: "Fresas Cubiertas de Chocolate",
-        description: "Selectas fresas bañadas en una crujiente y fina capa de chocolate premium.",
-        price: "$120",
-        image: "/images/fresas cubiertas de chocolate.jpg",
-        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20Fresas%20Cubiertas%20de%20Chocolate"
-      },
-      {
-        name: "Chocobomba",
-        description: "Esfera de chocolate artesanal rellena de cocoa y bombones. ¡Derrítela en leche caliente!",
-        price: "$45",
-        image: "/images/chocobombas.jpg",
-        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20unas%20Chocobombas"
-      },
-      {
-        name: "Flan Napolitano",
-        description: "El toque casero que no puede faltar. Cremoso, suave y con caramelo perfecto.",
-        price: "$50",
-        image: "/images/flan napolitano.jpg",
-        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20el%20Flan%20Napolitano"
-      },
-      {
-        name: "Pay de Queso Mixto",
-        description: "Mitad limón con nuez y mitad fresas. El balance perfecto entre frescura y sabor.",
-        price: "$60",
-        image: "/images/pay de queso, mitad limon con nuez y mitad fresas.jpg",
-        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20pedir%20el%20Pay%20de%20Queso%20Mixto"
       }
     ]
   },
   {
     id: "especiales",
     name: "Temporada & Eventos",
-    emoji: "🎉",
-    description: "Nuestras obras maestras a medida, creadas especialmente para que tu celebración brille.",
+    emoji: "­ƒÄë",
+    description: "Nuestras obras maestras a medida, creadas especialmente para que tu celebraci├│n brille.",
     items: [
       {
-        name: "Pastel de 3 Leches (Minecraft)",
-        description: "El clásico de la casa con decorado temático. Bizcocho bañado a la perfección.",
-        price: "Mándanos WA",
-        image: "/images/pastel de 3 leches.jpg",
-        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20información%20para%20un%20Pastel%20de%20Minecraft"
-      },
-      {
         name: "Pastel para Evento",
-        description: "Pasteles esculturales y artísticos para bodas, bautizos y mega celebraciones.",
-        price: "Mándanos WA",
+        description: "Pasteles esculturales y art├¡sticos para bodas, bautizos y mega celebraciones.",
+        price: "M├índanos WA",
         image: "/images/pastel evento.jpg",
-        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20información%20para%20un%20Pastel%20de%20Evento"
+        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20informaci├│n%20para%20un%20Pastel%20de%20Evento"
       },
       {
-        name: "Pastel Temático Día del Padre",
-        description: "Diseño elegante y sobrio con los mejores sabores para festejar el día del padre.",
-        price: "Mándanos WA",
+        name: "Pastel Tem├ítico D├¡a del Padre",
+        description: "Dise├▒o elegante y sobrio con los mejores sabores para festejar el d├¡a del padre.",
+        price: "M├índanos WA",
         image: "/images/dia del padre cakes.jpg",
-        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20información%20sobre%20Pastel%20Día%20del%20Padre"
+        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20informaci├│n%20sobre%20Pastel%20D├¡a%20del%20Padre"
       },
       {
-        name: "Pastel para XV Años",
-        description: "Elaborados con impecable atención al detalle para la noche más inolvidable.",
-        price: "Mándanos WA",
-        image: "/images/pastel xv años.jpg",
-        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20información%20para%20un%20Pastel%20de%20XV%20Años"
+        name: "Pastel para XV A├▒os",
+        description: "Elaborados con impecable atenci├│n al detalle para la noche m├ís inolvidable.",
+        price: "M├índanos WA",
+        image: "/images/pastel xv a├▒os.jpg",
+        whatsapp: "https://wa.me/528994719925?text=Hola,%20quiero%20informaci├│n%20para%20un%20Pastel%20de%20XV%20A├▒os"
       }
     ]
   }
 ];
 ---
 
-<Layout title="Menú Completo | PastelArte">
+<Layout title="Men├║ Completo | PastelArte">
   <Header />
   <main>
     <!-- Page Hero -->
@@ -210,19 +153,19 @@ const categories = [
       <div class="max-w-4xl mx-auto">
         <div class="inline-flex items-center gap-2 bg-accent/15 text-choco/80 text-sm font-body font-semibold px-5 py-2 rounded-full mb-6">
           <svg viewBox="0 0 100 100" class="w-5 h-5 fill-cta" aria-hidden="true"><use href="#sparkle" /></svg>
-          Menú completo
+          Men├║ completo
         </div>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-brand font-bold text-choco mb-4">
-          Nuestra Galería de Sabores
+          Nuestro Men├║ Completo
         </h1>
         <p class="text-lg sm:text-xl text-choco/70 font-body max-w-2xl mx-auto">
-          Explora nuestra dulce colección de obras maestras elaboradas artesanalmente. ¿Qué obra de arte se te antoja hoy?
+          Explora todos nuestros postres hechos con amor. ┬┐Ya sabes qu├® se te antoja? ┬íPide por WhatsApp!
         </p>
       </div>
     </section>
     
     <!-- Category Tabs (Sticky) -->
-    <nav class="sticky top-20 z-40 bg-cream/95 backdrop-blur-sm border-y border-accent/20 py-3 px-4 sm:px-6 lg:px-8" aria-label="Categorías del menú">
+    <nav class="sticky top-20 z-40 bg-cream/95 backdrop-blur-sm border-y border-accent/20 py-3 px-4 sm:px-6 lg:px-8" aria-label="Categor├¡as del men├║">
       <div class="max-w-4xl mx-auto flex justify-center gap-2 sm:gap-4 overflow-x-auto scrollbar-hide">
         {categories.map((cat, i) => (
           <button 
@@ -256,15 +199,10 @@ const categories = [
           <!-- Product Grid -->
           <div class="menu-product-grid" style="display:grid;gap:1.5rem;">
             {category.items.map((item) => (
-              <div class="group bg-cream rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-accent/15 flex flex-col reveal-up delay-100 relative">
+              <div class="group bg-cream rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-accent/15 flex flex-col reveal-up delay-100">
                 
                 <!-- Product Image -->
                 <div class="aspect-square overflow-hidden relative">
-                  <!-- Logo Badge (Sticker) -->
-                  <div class="absolute top-3 left-3 w-12 h-12 rounded-full overflow-hidden shadow-sm z-10 pointer-events-none">
-                    <img src="/images/logo.webp" alt="PastelArte" class="w-full h-full object-cover" />
-                  </div>
-
                   <img 
                     src={item.image} 
                     alt={item.name}
@@ -273,6 +211,10 @@ const categories = [
                     width="300"
                     height="300"
                   />
+                  <!-- Price Badge -->
+                  <div class="absolute top-3 right-3 bg-choco/90 text-cream font-brand font-bold text-sm px-3 py-1.5 rounded-full shadow-lg">
+                    {item.price}
+                  </div>
                 </div>
 
                 <!-- Product Info -->
@@ -290,7 +232,7 @@ const categories = [
                       data-image={item.image}
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" class="stroke-current stroke-2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/><path d="M12 8v6"/><path d="M9 11h6"/></svg>
-                      Añadir
+                      A├▒adir
                     </button>
                     <a 
                       href={item.whatsapp}
@@ -327,7 +269,7 @@ const categories = [
 </Layout>
 
 <script>
-  // Responsive grid — injected at runtime to avoid Tailwind/Astro stripping
+  // Responsive grid ÔÇö injected at runtime to avoid Tailwind/Astro stripping
   const style = document.createElement('style');
   style.textContent = `
     .menu-product-grid { display:grid; grid-template-columns:1fr; gap:1.5rem; }
@@ -398,7 +340,7 @@ const categories = [
         CartStore.addItem(item);
         
         const originalText = target.innerHTML;
-        target.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> ¡Añadido!`;
+        target.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> ┬íA├▒adido!`;
         target.classList.replace('text-cta', 'text-white');
         target.classList.replace('bg-cream', 'bg-[#10b981]');
         target.classList.replace('border-cta', 'border-[#10b981]');
