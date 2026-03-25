@@ -9,12 +9,10 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="PastelArte | Postres hechos con amor">
-  <Header />
-  <main>
-    <Hero />
-    <Menu />
-    <About />
-    <Faq />
-  </main>
-  <Footer />
+  <Header slot="header" />
+  <Hero />
+  <Menu />
+  <About />
+  <Faq />
+  <Footer slot="footer" />
 </Layout>

@@ -10,6 +10,13 @@
 }
 
 @layer base {
+  html,
+  body {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+  }
+
   body {
     background-color: var(--color-cream);
     color: var(--color-choco);

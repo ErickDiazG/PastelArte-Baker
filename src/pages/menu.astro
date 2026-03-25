@@ -8,7 +8,6 @@ const categories = [
   {
     id: "pasteles",
     name: "Pasteles",
-    emoji: "🎂",
     description: "Pasteles completos para celebraciones, cumpleaños y momentos especiales.",
     items: [
 
@@ -59,7 +58,6 @@ const categories = [
   {
     id: "galletas",
     name: "Galletas",
-    emoji: "🍪",
     description: "Galletas horneadas con amor, perfectas para regalar o consentirte a bocados gruesos.",
     items: [
       {
@@ -95,7 +93,6 @@ const categories = [
   {
     id: "individuales",
     name: "Postres Individuales",
-    emoji: "🧁",
     description: "Porciones perfectas para apagar esos hermosos antojos que no pueden esperar.",
     items: [
       {
@@ -166,7 +163,6 @@ const categories = [
   {
     id: "especiales",
     name: "Temporada & Eventos",
-    emoji: "🎉",
     description: "Nuestras obras maestras a medida, creadas especialmente para que tu celebración brille.",
     items: [
       {
@@ -200,12 +196,19 @@ const categories = [
     ]
   }
 ];
+
+// SVG Icons mapping for categories (Hand-drawn / Artisanal style)
+const categoryIcons = {
+  pasteles: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/><path d="M7 4h.01"/><path d="M12 4h.01"/><path d="M17 4h.01"/></svg>`,
+  galletas: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/><path d="M11 17v.01"/><path d="M7 14v.01"/></svg>`,
+  individuales: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10 2 2 2 2-2"/><path d="M12 4v4"/><path d="M19 17V11a7 7 0 0 0-14 0v6"/><path d="M5 17a2 2 0 0 0 0 4h14a2 2 0 0 0 0-4"/><path d="M5 17h14"/></svg>`,
+  especiales: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v22"/><path d="M22 12H2"/><path d="m19 5-1.4 1.4"/><path d="m5 19-1.4 1.4"/><path d="m19 19-1.4-1.4"/><path d="m5 5-1.4-1.4"/></svg>`
+};
 ---
 
 <Layout title="Menú Completo | PastelArte">
-  <Header />
-  <main>
-    <!-- Page Hero -->
+  <Header slot="header" />
+  <!-- Page Hero -->
     <section class="pt-12 pb-8 lg:pt-16 lg:pb-12 px-4 sm:px-6 lg:px-8 text-center">
       <div class="max-w-4xl mx-auto">
         <div class="inline-flex items-center gap-2 bg-accent/15 text-choco/80 text-sm font-body font-semibold px-5 py-2 rounded-full mb-6">
@@ -229,7 +232,7 @@ const categories = [
             data-target={cat.id}
             class={`tab-btn flex items-center gap-2 px-4 sm:px-6 py-2.5 rounded-full font-brand font-bold text-sm sm:text-base transition-colors whitespace-nowrap min-h-[44px] shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent ${i === 0 ? 'bg-cta text-white border-transparent' : 'text-choco/80 hover:text-choco bg-white/60 hover:bg-white border border-accent/20 hover:border-accent/40'}`}
           >
-            <span aria-hidden="true">{cat.emoji}</span>
+            <span class="w-5 h-5" aria-hidden="true" set:html={categoryIcons[cat.id]} />
             <span>{cat.name}</span>
           </button>
         ))}
@@ -244,7 +247,7 @@ const categories = [
 
           <!-- Category Header -->
           <div class="text-center mb-12">
-            <span class="text-4xl mb-3 block" aria-hidden="true">{category.emoji}</span>
+            <span class="w-12 h-12 mx-auto mb-3 flex items-center justify-center text-cta" aria-hidden="true" set:html={categoryIcons[category.id]} />
             <h2 class="text-3xl sm:text-4xl font-brand font-bold text-choco mb-3">
               {category.name}
             </h2>
@@ -260,11 +263,6 @@ const categories = [
                 
                 <!-- Product Image -->
                 <div class="aspect-square overflow-hidden relative">
-                  <!-- Logo Badge (Sticker) -->
-                  <div class="absolute top-3 left-3 w-12 h-12 rounded-full overflow-hidden shadow-sm z-10 pointer-events-none">
-                    <img src="/images/logo.webp" alt="PastelArte" class="w-full h-full object-cover" />
-                  </div>
-
                   <img 
                     src={item.image} 
                     alt={item.name}
@@ -322,8 +320,7 @@ const categories = [
         Volver al inicio
       </a>
     </div>
-  </main>
-  <Footer />
+  <Footer slot="footer" />
 </Layout>
 
 <script>
